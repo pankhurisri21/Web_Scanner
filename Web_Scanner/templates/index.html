@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %} Nuclei Scanner {% endblock title %}
+{% block body %}
+        
+  <body>
+
+    <div class="container my-3">
+
+    <h1>Scan you Target!!!</h1>
+    <form action="/" method = "POST">
+        <div class="mb-3">
+            <table>
+                <tr>
+                    <td>
+                        <label for="title" class="form-label">Target</label>
+                        <input type="text" class="form-control" name ="target" id="target"></br>            
+                    </td>
+                    <td></td>
+                    <td>
+                        <label for="title" class="form-label">Thread</label>
+                        <input type="text" class="form-control" name ="thread" id="thread">
+                    
+                    </td>
+                    <td>           
+                         <button type="submit" class="btn btn-dark">Start scan</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="mb-3">
+            <table>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Target</th>
+                      <th>Subdomain</th>
+                      <th>IP Address</th>
+                      <th>DNS record</th>
+                      <th>Certificate</th>
+                    </tr>
+                {% for data in allData %}
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td>{{data[4]}}</td>
+                    <td>{{data[5]}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        </form>
+    </div>
+
+    {% endblock body %}

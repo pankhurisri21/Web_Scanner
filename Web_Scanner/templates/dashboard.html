@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Nuclei Scanner {% endblock title %}
+{% block body %}
+        
+  <body>
+       
+    <div class="container my-3">      
+            <table>
+                    <tr>
+                      <th>S.No</th>
+                      <th>Target</th>
+
+                    </tr>
+                {% for data in allData %}
+                
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td><a href="/subdomains/{{data[0]}}">{{data[0]}}</a></td>
+                   
+
+                </tr>
+                {% endfor %}
+            </table>
+   
+    </div>
+
+    {% endblock body %}
